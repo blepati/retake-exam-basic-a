@@ -4,7 +4,9 @@
 nums = [5, 7, 9, 15, 22]
 
 def min_max_diff(nums):
-    if nums == []:
+    if nums == [ ]:
+        return 0
+    if len(nums) == 1:
         return 0
     max_num = 0
     min_num = nums[0]
@@ -15,6 +17,5 @@ def min_max_diff(nums):
         if min_num > num:
             min_num = num
     return max_num - min_num
-
 
 print(min_max_diff(nums))
