@@ -38,11 +38,42 @@ class BookShelf(object):
 
     def remove(self, title):
         temp_list = []
-        for book in  self.list_of_books:
+        for book in self.list_of_books:
             if book.title != title:
                 temp_list.append(book)
         self.list_of_books = temp_list
         return self.list_of_books
+
+    def fav_author(self):
+        all_authors = []
+        for book in self.list_of_books:
+            all_authors.append(book.author)
+
+    def check_year(self):
+        released = []
+        for book in self.list_of_books:
+            released.append(book.release_year)
+        return released
+
+    def earliest(self):
+        released = self.check_year()
+        earliest = released[0]
+        for release_year in released:
+            if earliest > release_year:
+                earliest = release_year
+        for book in self.list_of_books:
+            if book.release_year == earliest:
+                return "Earliest released: " + str(book)
+
+    def latest(self):
+        released = self.check_year()
+        latest = released[0]
+        for release_year in released:
+            if latest < release_year:
+                latest = release_year
+        for book in self.list_of_books:
+            if book.release_year == latest:
+                return "Latest released: " + str(book)
 
 my_shelf = BookShelf()
 print(my_shelf.books())
@@ -56,6 +87,8 @@ my_shelf.put("Frank Herbert", "The Dragon in the Sea", 1957)
 print(my_shelf.books())
 my_shelf.remove("The Dragon in the Sea")
 print(my_shelf.books())
+print(my_shelf.earliest())
+print(my_shelf.latest())
 # Should print out:
 # You have 3 books.
 # Earliest released: Frank Herbert : Dune (1965)
