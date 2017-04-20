@@ -10,7 +10,7 @@
 import sys
 
 def usage_message():
-    print("python most_common_word.py [source]")
+    print("python most_common_word.py [file_name]")
 
 def count_words(file_name):
     try:
@@ -20,8 +20,7 @@ def count_words(file_name):
         text.close()
 
     except FileNotFoundError:
-            return 0
-
+        return 0
 
 def controller(arg):
     if len(sys.argv) == 1:
