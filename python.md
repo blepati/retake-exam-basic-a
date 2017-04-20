@@ -30,7 +30,7 @@ The application is accepted if:
 
 ## 4. Question time! (~10 mins) [3p]
 
-### How many constructors called when `my_foxi` initialized (and wich order) ?
+### How many constructors called when `my_foxi` initialized (and which order) ?
 ```python
 class Animal():
 	def __init__(self):
@@ -47,4 +47,4 @@ class Foxi(Dog):
 my_foxi = Foxi()
 ```
 #### Your answer:
-[add your answer here]   
+[I can't understand the question]   

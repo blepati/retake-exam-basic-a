@@ -18,14 +18,13 @@ def count_words(file_name):
         words_to_count = text.read()
         num_of_words = 0
         text.close()
-
     except FileNotFoundError:
-        return 0
+        return "No proper source provided"
 
 def controller(arg):
     if len(sys.argv) == 1:
         usage_message()
-    elif len(sys_argv) == 2:
-        count_words()
+    elif len(sys.argv) > 1:
+        count_words(sys.argv[2])
 
 controller(sys.argv)
