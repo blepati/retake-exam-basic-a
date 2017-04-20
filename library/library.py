@@ -10,10 +10,10 @@
 # Bookself should have a method whitch give us information about the number of books, the earliest and the latest released books, and the favourite author
 
 class Book(object):
-    def __init__(self, author, title, release_year):
-        self.author = author
-        self.title = title
-        self.release_year = release_year
+    def __init__(self):
+        self.author = ""
+        self.title = ""
+        self.release_year = 0
 
     def __repr__(self):
         return self.author + ": " + self.title + " (" + str(self.release_year) +")"
@@ -23,24 +23,39 @@ class BookShelf(object):
         self.list_of_books = []
 
     def books(self):
-        if len(self.list_of_books) == 0:
+        books_in_shelf = len(self.list_of_books)
+        if books_in_shelf == 0:
             return "You have no books here."
-        if len(self.list_of_books) > 0:
-            return "You have " + str(len(self.list_of_books)) + " books"
+        if books_in_shelf > 0:
+            return "You have " + str(books_in_shelf) + " books"
 
+    def put(self, author, title, release_year):
+        book = Book()
+        book.author = author
+        book.title = title
+        book.release_year = release_year
+        self.list_of_books.append(book)
+
+    def remove(self, title):
+        temp_list = []
+        for book in  self.list_of_books:
+            if book.title != title:
+                temp_list.append(book)
+        self.list_of_books = temp_list
+        return self.list_of_books
 
 my_shelf = BookShelf()
 print(my_shelf.books())
  #Should print out:
  #You have no books here.
 
-"""my_shelf.put("Douglas Adams", "The Hitchhiker's Guide to the Galaxy", 1979)
+my_shelf.put("Douglas Adams", "The Hitchhiker's Guide to the Galaxy", 1979)
 my_shelf.put("Douglas Adams", "Mostly Harmless", 1992)
 my_shelf.put("Frank Herbert", "Dune", 1965)
 my_shelf.put("Frank Herbert", "The Dragon in the Sea", 1957)
-"""#my_shelf.remove("The Dragon in the Sea")
-
-#print(my_shelf.books())
+print(my_shelf.books())
+my_shelf.remove("The Dragon in the Sea")
+print(my_shelf.books())
 # Should print out:
 # You have 3 books.
 # Earliest released: Frank Herbert : Dune (1965)
