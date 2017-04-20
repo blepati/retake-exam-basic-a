@@ -16,25 +16,31 @@ class Book(object):
         self.release_year = release_year
 
     def __repr__(self):
-        return self.author + ": " + self.title + " (" + self.release_year +")"
+        return self.author + ": " + self.title + " (" + str(self.release_year) +")"
 
+class BookShelf(object):
+    def __init__(self):
+        self.list_of_books = []
 
-
-
+    def books(self):
+        if len(self.list_of_books) == 0:
+            return "You have no books here."
+        if len(self.list_of_books) > 0:
+            return "You have " + str(len(self.list_of_books)) + " books"
 
 
 my_shelf = BookShelf()
 print(my_shelf.books())
-# Should print out:
-# You have no books here.
+ #Should print out:
+ #You have no books here.
 
-my_shelf.put("Douglas Adams", "The Hitchhiker's Guide to the Galaxy", 1979)
+"""my_shelf.put("Douglas Adams", "The Hitchhiker's Guide to the Galaxy", 1979)
 my_shelf.put("Douglas Adams", "Mostly Harmless", 1992)
 my_shelf.put("Frank Herbert", "Dune", 1965)
 my_shelf.put("Frank Herbert", "The Dragon in the Sea", 1957)
-my_shelf.remove("The Dragon in the Sea")
+"""#my_shelf.remove("The Dragon in the Sea")
 
-print(my_shelf.books())
+#print(my_shelf.books())
 # Should print out:
 # You have 3 books.
 # Earliest released: Frank Herbert : Dune (1965)
