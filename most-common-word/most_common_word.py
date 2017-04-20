@@ -9,11 +9,8 @@
 
 import sys
 
-def print_description():
-    print("usage: python most_common_word.py [source]")
-
-def warning_message():
-    print("No source provided")
+def usage_message():
+    print("python most_common_word.py [source]")
 
 def count_words(file_name):
     try:
@@ -28,8 +25,8 @@ def count_words(file_name):
 
 def controller(arg):
     if len(sys.argv) == 1:
-        warning_message()
-    else:
-        print_description()
+        usage_message()
+    elif len(sys_argv) == 2:
+        count_words()
 
 controller(sys.argv)
